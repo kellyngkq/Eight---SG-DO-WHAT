@@ -1,11 +1,11 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
 import Places from './components/Places.vue'
+import Weather from "./components/Weather.vue";
 </script>
 
 <template>
   <Places />
+  <Weather />
 </template>
 
 <style scoped>
