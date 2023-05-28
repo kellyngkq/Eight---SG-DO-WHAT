@@ -38,6 +38,11 @@ export default {
 <template>
   <!--If there is no rain, show everything-->
   <div v-if="rainStatus == false">
+    <input
+      type="checkbox"
+      value="All"
+      v-model="selected"
+      checked="checked" />All <br />
     <input type="checkbox" value="Indoor" v-model="selected" />Indoor <br />
     <input type="checkbox" value="Outdoor" v-model="selected" />Outdoor <br />
     <input type="checkbox" value="Nature" v-model="selected" />Nature<br />
@@ -194,6 +199,24 @@ export default {
       </div>
 
       <!--These are all 1 selection only-->
+
+      <div v-else-if="selected.length == 1 && selected.includes('All')">
+        <div class="place" v-for="place in places" :key="places[0]">
+          <button class="card">
+            <h1>{{ place[0] }}</h1>
+            <br />
+            <div v-if="place[1].price == 0">
+              <h3>Price: Free</h3>
+            </div>
+            <div v-else>
+              <h3>Price: ${{ place[1].price }}</h3>
+            </div>
+            <br />
+            <h3>Area: {{ place[1].area }}</h3>
+          </button>
+        </div>
+      </div>
+
       <div v-else-if="selected.length == 1 && selected.includes('Indoor')">
         <div class="place" v-for="place in places" :key="places[0]">
           <div v-if="place[1].type == 'indoor'">
@@ -337,7 +360,7 @@ export default {
   text-align: left;
   width: 90vh;
   margin: 10px;
-  background-color: peachpuff;
+  background-color: palegoldenrod;
   height: 380px;
   border-radius: 20px;
 }
