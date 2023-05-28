@@ -1,11 +1,11 @@
 <script setup>
+import Places from './components/Places.vue'
 import Weather from "./components/Weather.vue";
 </script>
 
 <template>
-  <main>
-    <Weather />
-  </main>
+  <Places />
+  <Weather />
 </template>
 
 <style scoped>
