@@ -1,5 +1,6 @@
 <script>
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
   data() {
@@ -7,6 +8,7 @@ export default {
       currDate: new Date(),
       rain: false,
       temp: 0,
+      url: "",
     };
   },
 
@@ -37,36 +39,43 @@ export default {
 
 <template>
   <div class="Greetings">
-    <h3>Today's Weather in SG</h3>
-    <h1>Rainfall today {{ rain }}</h1>
-    <h1>Temperature today {{ temp.toPrecision(3) }}</h1>
-    <h6>
-      Information accurate as of {{ currDate.toLocaleDateString() }},
-      {{ currDate.toTimeString() }}
-    </h6>
+    <div class="weather">
+      <h3>Today's Weather in SG</h3>
+      <h1>Rainfall today {{ rain }}</h1>
+      <font-awesome-icon icon="fa-solid fa-temperature-half" />
+      <h1>Temperature today {{ temp.toPrecision(3) }}</h1>
+      <h6>
+        Information accurate as of {{ currDate.toLocaleDateString() }},
+        {{ currDate.toTimeString() }}
+      </h6>
+    </div>
+    <img
+      v-if="(temp < 32) & !rain"
+      class="perfect"
+      src="../assets/perfect.jpg"
+    />
   </div>
+  <div id="myimg"></div>
 </template>
 
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  top: -10px;
+img {
+  z-index: 000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
+  filter: blur(2px) sepia(50%);
 }
 
-h3 {
-  font-size: 1.2rem;
-}
-
-.greetings h1,
-.greetings h3 {
+.weather {
+  z-index: 888;
+  color: black;
+  position: relative;
+  background-color: white;
   text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
 }
 </style>
