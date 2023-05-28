@@ -1,8 +1,16 @@
 <script>
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import Places from "./Places.vue";
 
 export default {
+  name: "weather",
+  components: {
+    Places,
+  },
+  props: {
+    rain: Boolean,
+  },
   data() {
     return {
       currDate: new Date(),
