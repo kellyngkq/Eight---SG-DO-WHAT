@@ -62,11 +62,13 @@ export default {
   position: relative;
   text-align: center;
   color: white;
+  height: fit-content;
 }
+
 img {
   z-index: 000;
   width: 100%;
-  height: 50%;
+  height: 80vh;
   object-fit: cover;
   -webkit-filter: blur(1px); /* Safari 6.0 - 9.0 */
   filter: blur(1px) sepia(50%);
@@ -82,7 +84,7 @@ img {
 .weather {
   z-index: 888;
   position: absolute;
-  top: 20%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 200px;

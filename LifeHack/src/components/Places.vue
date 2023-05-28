@@ -52,7 +52,6 @@ export default {
   margin: 10px;
   background-color: peachpuff;
   height: 380px;
-  padding: 40vh 20px;
   border-radius: 20px;
 }
 </style>
