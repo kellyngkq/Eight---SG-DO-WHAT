@@ -52,30 +52,39 @@ export default {
     <img
       v-if="(temp < 32) & !rain"
       class="perfect"
-      src="../assets/perfect.jpg"
-    />
+      src="../assets/perfect.jpg" />
   </div>
   <div id="myimg"></div>
 </template>
 
 <style scoped>
+.Greetings {
+  position: relative;
+  text-align: center;
+  color: white;
+}
 img {
   z-index: 000;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  height: 50%;
   object-fit: cover;
-  -webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
-  filter: blur(2px) sepia(50%);
+  -webkit-filter: blur(1px); /* Safari 6.0 - 9.0 */
+  filter: blur(1px) sepia(50%);
 }
 
-.weather {
+/* .weather {
   z-index: 888;
   color: black;
   position: relative;
-  background-color: white;
   text-align: center;
+} */
+
+.weather {
+  z-index: 888;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 200px;
 }
 </style>
