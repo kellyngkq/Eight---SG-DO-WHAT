@@ -3,6 +3,7 @@ import firebaseApp from "../firebase.js";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import MoreInfo from "./MoreInfo.vue";
 
 const db = getFirestore(firebaseApp);
 const storage = getStorage();
@@ -15,6 +16,9 @@ export default {
       places: [],
       selected: [],
     };
+  },
+  components: {
+    MoreInfo,
   },
   methods: {
     async display() {
@@ -430,25 +434,25 @@ export default {
   transition: 0.3s;
   text-align: left;
   width: 52vh;
-  margin: 10px;
+  margin: 6px;
   background-color: palegoldenrod;
   height: 40vh;
   padding: 5px 15px;
+  display: table;
 }
 
 .place {
   grid-template-columns: auto auto auto;
   margin-top: 3vh;
   float: left;
-  margin-left: 7vh;
+  margin-left: 5vh;
 }
 
 .placepic img {
   display: table-row;
-  height: 300px;
-  width: 80vh;
+  height: 30vh;
+  width: 52vh;
   object-fit: cover;
-  padding-top: 5vh;
-  padding-left: 5vh;
+  padding-top: 3vh;
 }
 </style>
