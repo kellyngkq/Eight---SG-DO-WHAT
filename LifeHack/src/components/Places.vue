@@ -777,7 +777,7 @@ export default {
   grid-template-columns: auto auto auto;
   margin-top: 3vh;
   float: left;
-  margin-left: 9vh;
+  margin-left: 8vh;
 }
 
 .placepic img {
