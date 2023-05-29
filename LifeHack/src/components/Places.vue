@@ -57,14 +57,14 @@ export default {
   <div v-if="rain == false">
     <br /><br /><br />
     <div id="checkboxes">
-      <input type="checkbox" value="All" v-model="selected" />All <br />
-      <input type="checkbox" value="Indoor" v-model="selected" />Indoor <br />
-      <input type="checkbox" value="Outdoor" v-model="selected" />Outdoor <br />
-      <input type="checkbox" value="Nature" v-model="selected" />Nature<br />
+      <input type="checkbox" value="All" v-model="selected" />All
+      <input type="checkbox" value="Indoor" v-model="selected" />Indoor 
+      <input type="checkbox" value="Outdoor" v-model="selected" />Outdoor
+      <input type="checkbox" value="Nature" v-model="selected" />Nature
       <input
         type="checkbox"
         value="Heritage"
-        v-model="selected" />Heritage<br />
+        v-model="selected" />Heritage
       <input type="checkbox" value="Food" v-model="selected" />Food <br /><br />
       <span
         ><h3 id="recommended">
@@ -750,9 +750,15 @@ export default {
 <style>
 #checkboxes {
   margin-left: 10vh;
-  font-size: 20px;
+  font-size: 26px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+
+#checkboxes input{
+  margin: 0px 6px 0px 12px;
+}
+
+
 .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

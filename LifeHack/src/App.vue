@@ -1,12 +1,14 @@
 <script setup>
 import Places from "./components/Places.vue";
 import Weather from "./components/Weather.vue";
+import AboutUs from "./components/AboutUs.vue";
 </script>
 
 <template>
   <div class="container">
     <div id="weather"><Weather /></div>
     <div id="places"><Places /></div>
+    <div id="aboutus"><AboutUs /></div>
   </div>
 </template>
 
