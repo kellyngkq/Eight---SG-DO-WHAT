@@ -8,7 +8,7 @@ const db = getFirestore(firebaseApp);
 const storage = getStorage();
 
 export default {
-    name: "Places",
+  name: "Places",
   props: ["rain"],
   data() {
     return {
@@ -37,11 +37,7 @@ export default {
 <template>
   <!--If there is no rain, show everything-->
   <div v-if="rain == false">
-    <input
-      type="checkbox"
-      value="All"
-      v-model="selected"
-      checked="checked" />All <br />
+    <input type="checkbox" value="All" v-model="selected" />All <br />
     <input type="checkbox" value="Indoor" v-model="selected" />Indoor <br />
     <input type="checkbox" value="Outdoor" v-model="selected" />Outdoor <br />
     <input type="checkbox" value="Nature" v-model="selected" />Nature<br />
@@ -337,7 +333,7 @@ export default {
   </div>
 
   <!--Else, if its raining, then show only indoor places-->
-  <div v-else>
+  <div v-else-if="rain == true">
     <div class="place" v-for="place in places" :key="places[0]">
       <!--filter for those places that are indoor-->
       <div v-if="place[1].type == 'indoor'">

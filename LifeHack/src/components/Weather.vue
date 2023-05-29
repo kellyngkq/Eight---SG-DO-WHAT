@@ -45,7 +45,6 @@ export default {
 </script>
 
 <template>
-    <Places :rain = "rain"></Places>
   <div class="Greetings">
     <div class="weather">
       <h3>Today's Weather in SG</h3>
@@ -63,6 +62,8 @@ export default {
       src="../assets/perfect.jpg" />
   </div>
   <div id="myimg"></div>
+  <Places :rain = "rain"></Places>
+
 </template>
 
 <style scoped>
