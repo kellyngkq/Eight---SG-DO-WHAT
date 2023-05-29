@@ -9,7 +9,7 @@ const storage = getStorage();
 
 export default {
   props: {
-    rainStatus: Boolean,
+    rain: Boolean,
   },
   data() {
     return {
@@ -27,7 +27,7 @@ export default {
         this.places.push([doc.id, doc.data()]);
       });
 
-      console.log(this.rainStatus);
+      console.log("Current rain status: " + this.rain);
     },
   },
   async mounted() {
@@ -37,7 +37,7 @@ export default {
 </script>
 <template>
   <!--If there is no rain, show everything-->
-  <div v-if="rainStatus == false">
+  <div v-if="rain == false">
     <input
       type="checkbox"
       value="All"

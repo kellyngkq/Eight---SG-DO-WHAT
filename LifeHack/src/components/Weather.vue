@@ -5,12 +5,6 @@ import Places from "./Places.vue";
 
 export default {
   name: "weather",
-  components: {
-    Places,
-  },
-  props: {
-    rain: Boolean,
-  },
   data() {
     return {
       currDate: new Date(),
@@ -42,6 +36,8 @@ export default {
     }
     this.temp /= temperature.length;
   },
+
+
 };
 </script>
 
