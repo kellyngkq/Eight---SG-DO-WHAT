@@ -1,7 +1,7 @@
 <script>
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import Places from "./Places.vue";
+import Places from "@/components/Places.vue";
 
 export default {
   name: "weather",
@@ -12,6 +12,9 @@ export default {
       temp: 0,
       url: "",
     };
+  },
+  components: {
+    Places
   },
 
   async mounted() {
@@ -42,6 +45,7 @@ export default {
 </script>
 
 <template>
+    <Places :rain = "rain"></Places>
   <div class="Greetings">
     <div class="weather">
       <h3>Today's Weather in SG</h3>

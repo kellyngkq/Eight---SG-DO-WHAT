@@ -8,9 +8,8 @@ const db = getFirestore(firebaseApp);
 const storage = getStorage();
 
 export default {
-  props: {
-    rain: Boolean,
-  },
+    name: "Places",
+  props: ["rain"],
   data() {
     return {
       places: [],
