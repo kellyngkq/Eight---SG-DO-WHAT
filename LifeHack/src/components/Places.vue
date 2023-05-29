@@ -55,14 +55,23 @@ export default {
 <template>
   <!--If there is no rain, show everything-->
   <div v-if="rain == false">
-    <br><br><br>
-    <input type="checkbox" value="All" v-model="selected" />All <br />
-    <input type="checkbox" value="Indoor" v-model="selected" />Indoor <br />
-    <input type="checkbox" value="Outdoor" v-model="selected" />Outdoor <br />
-    <input type="checkbox" value="Nature" v-model="selected" />Nature<br />
-    <input type="checkbox" value="Heritage" v-model="selected" />Heritage<br />
-    <input type="checkbox" value="Food" v-model="selected" />Food <br /><br />
-    <span><h3>Here are the recommended places, have fun!</h3></span>
+    <br /><br /><br />
+    <div id="checkboxes">
+      <input type="checkbox" value="All" v-model="selected" />All <br />
+      <input type="checkbox" value="Indoor" v-model="selected" />Indoor <br />
+      <input type="checkbox" value="Outdoor" v-model="selected" />Outdoor <br />
+      <input type="checkbox" value="Nature" v-model="selected" />Nature<br />
+      <input
+        type="checkbox"
+        value="Heritage"
+        v-model="selected" />Heritage<br />
+      <input type="checkbox" value="Food" v-model="selected" />Food <br /><br />
+      <span
+        ><h3 id="recommended">
+          Here are the recommended places, have fun!
+        </h3></span
+      >
+    </div>
 
     <!--If its not raining, and none selected, then display all-->
     <MoreInfo ref="moreinfo"></MoreInfo>
@@ -73,15 +82,13 @@ export default {
             <div class="placepic">
               <img :src="'src/assets/' + place[0] + '.jpg'" />
             </div>
-            <h1>{{ place[0] }}</h1>
-            <br />
+            <h2>{{ place[0] }}</h2>
             <div v-if="place[1].price == 0">
               <h3>Price: Free</h3>
             </div>
             <div v-else>
               <h3>Price: ${{ place[1].price }}</h3>
             </div>
-            <br />
             <h3>Area: {{ place[1].area }}</h3>
           </div>
         </div>
@@ -121,15 +128,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -149,15 +154,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -174,15 +177,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -200,15 +201,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -230,15 +229,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -255,15 +252,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -280,15 +275,13 @@ export default {
               <div class="placepic">
                 <img :src="'src/assets/' + place[0] + '.jpg'" />
               </div>
-              <h1>{{ place[0] }}</h1>
-              <br />
+              <h2>{{ place[0] }}</h2>
               <div v-if="place[1].price == 0">
                 <h3>Price: Free</h3>
               </div>
               <div v-else>
                 <h3>Price: ${{ place[1].price }}</h3>
               </div>
-              <br />
               <h3>Area: {{ place[1].area }}</h3>
             </div>
           </div>
@@ -303,15 +296,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -327,15 +318,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -351,15 +340,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -375,15 +362,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -399,15 +384,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -419,16 +402,20 @@ export default {
 
   <!--Else, if its raining, then show only indoor places-->
   <div v-else-if="rain == true">
-    <br><br><br>
+    <br /><br /><br />
     <!--checkbox also auto checks "indoor and whatever category the place is under"-->
-    <div>
+    <div id="checkboxes">
       <input type="checkbox" value="All" v-model="selected" />All
       <input type="checkbox" value="Indoor" v-model="selected" checked />Indoor
       <input type="checkbox" value="Outdoor" v-model="selected" />Outdoor
       <input type="checkbox" value="Nature" v-model="selected" />Nature
       <input type="checkbox" value="Heritage" v-model="selected" />Heritage
       <input type="checkbox" value="Food" v-model="selected" />Food <br /><br />
-      <span><h3>Here are the recommended places, have fun!</h3></span>
+      <span
+        ><h3 id="recommended">
+          Here are the recommended places, have fun!
+        </h3></span
+      >
     </div>
 
     <div v-if="selected.length == 0">
@@ -440,15 +427,13 @@ export default {
               <div class="placepic">
                 <img :src="'src/assets/' + place[0] + '.jpg'" />
               </div>
-              <h1>{{ place[0] }}</h1>
-              <br />
+              <h2>{{ place[0] }}</h2>
               <div v-if="place[1].price == 0">
                 <h3>Price: Free</h3>
               </div>
               <div v-else>
                 <h3>Price: ${{ place[1].price }}</h3>
               </div>
-              <br />
               <h3>Area: {{ place[1].area }}</h3>
             </div>
           </div>
@@ -489,15 +474,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -517,15 +500,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -542,15 +523,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -568,15 +547,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -598,15 +575,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -623,15 +598,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -648,15 +621,13 @@ export default {
               <div class="placepic">
                 <img :src="'src/assets/' + place[0] + '.jpg'" />
               </div>
-              <h1>{{ place[0] }}</h1>
-              <br />
+              <h2>{{ place[0] }}</h2>
               <div v-if="place[1].price == 0">
                 <h3>Price: Free</h3>
               </div>
               <div v-else>
                 <h3>Price: ${{ place[1].price }}</h3>
               </div>
-              <br />
               <h3>Area: {{ place[1].area }}</h3>
             </div>
           </div>
@@ -671,15 +642,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -695,15 +664,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -719,15 +686,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -743,15 +708,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -767,16 +730,13 @@ export default {
                 <div class="placepic">
                   <img :src="'src/assets/' + place[0] + '.jpg'" />
                 </div>
-                <h1>{{ place[0] }}</h1>
-                <br />
+                <h2>{{ place[0] }}</h2>
                 <div v-if="place[1].price == 0">
                   <h3>Price: Free</h3>
                 </div>
                 <div v-else>
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
-                <br />
-
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -788,6 +748,11 @@ export default {
 </template>
 
 <style>
+#checkboxes {
+  margin-left: 10vh;
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
 .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -806,7 +771,7 @@ export default {
   grid-template-columns: auto auto auto;
   margin-top: 3vh;
   float: left;
-  margin-left: 5vh;
+  margin-left: 9vh;
 }
 
 .placepic img {
@@ -815,5 +780,14 @@ export default {
   width: 52vh;
   object-fit: cover;
   padding-top: 3vh;
+}
+
+input[type="checkbox"] {
+  zoom: 1.2;
+  transform: scale(1);
+}
+
+.container {
+  height: 56vh;
 }
 </style>
