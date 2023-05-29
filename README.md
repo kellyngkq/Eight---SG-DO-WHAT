@@ -3,14 +3,10 @@
 ## Project Setup
 
 ```sh
-cd lifehack
+cd LifeHack
 npm install
 npm run dev
 ```
-
-## Deployed app
-
-https://tutorxtutee.web.app/ <br>
 
 **About us** <br>
 SG DO WHAT? aims to provide tourists visiting Singapore an enjoyable and fuss-free experience. As Singapore's weather can be rather unpredictable, our website offers a wide range of activities for tourists to take part in in the event of bad weather. Our website also allows for tourists to filter places based on their preferences such as outdoor/indoor activities, nature trails, food, or heritage sites.
