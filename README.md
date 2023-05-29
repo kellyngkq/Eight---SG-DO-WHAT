@@ -13,7 +13,6 @@ SG DO WHAT? aims to provide tourists visiting Singapore an enjoyable and fuss-fr
 
 Additionally, SG DO WHAT? aims to introduce tourists to less well-known places that are often not suggested on other visitor sites so that they can explore these places as well.
 
-## Accounts for testing
 
 ## Contributors
 
