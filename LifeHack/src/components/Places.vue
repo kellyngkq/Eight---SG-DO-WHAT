@@ -382,7 +382,6 @@ export default {
   margin: 10px;
   background-color: palegoldenrod;
   height: 40vh;
-  border-radius: 20px;
   padding: 5px 15px;
 }
 
