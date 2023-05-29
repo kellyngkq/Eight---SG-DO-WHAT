@@ -41,11 +41,15 @@ export default {
   <div class="Greetings">
     <div class="weather">
       <h1><strong>Today's Weather in Singapore</strong></h1>
-      <h2>Rainfall today {{ rain }}</h2>
       <div class="temp">
         <font-awesome-icon icon="fa-solid fa-temperature-half" />
-        <h2>{{ temp.toPrecision(3) }}</h2>
+        <h2>{{ temp.toPrecision(3) }}°C</h2>
       </div>
+      <h2 v-if="rain">
+        Don't forget your umbrealla and raincoats, it's time to stay indoors!
+      </h2>
+      <h2 v-else>The weather is perfect today, go out and enjoy!</h2>
+
       <h6>
         Information accurate as of {{ currDate.toLocaleDateString() }},
         {{ currDate.toTimeString() }}
