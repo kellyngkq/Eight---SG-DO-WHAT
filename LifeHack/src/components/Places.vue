@@ -48,18 +48,20 @@ export default {
     <!--If its not raining, and none selected, then display all-->
     <div v-if="selected.length == 0">
       <div class="place" v-for="place in places" :key="places[0]">
-        <button class="card">
-          <h1>{{ place[0] }}</h1>
-          <br />
-          <div v-if="place[1].price == 0">
-            <h3>Price: Free</h3>
+        <div class="card">
+          <div class="container">
+            <h1>{{ place[0] }}</h1>
+            <br />
+            <div v-if="place[1].price == 0">
+              <h3>Price: Free</h3>
+            </div>
+            <div v-else>
+              <h3>Price: ${{ place[1].price }}</h3>
+            </div>
+            <br />
+            <h3>Area: {{ place[1].area }}</h3>
           </div>
-          <div v-else>
-            <h3>Price: ${{ place[1].price }}</h3>
-          </div>
-          <br />
-          <h3>Area: {{ place[1].area }}</h3>
-        </button>
+        </div>
       </div>
     </div>
 
@@ -376,10 +378,18 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   text-align: left;
-  width: 90vh;
+  width: 52vh;
   margin: 10px;
   background-color: palegoldenrod;
-  height: 380px;
+  height: 40vh;
   border-radius: 20px;
+  padding: 5px 15px;
+}
+
+.place {
+  grid-template-columns: auto auto auto;
+  margin-top: 3vh;
+  float: left;
+  margin-left: 7vh;
 }
 </style>
