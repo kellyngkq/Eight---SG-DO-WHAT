@@ -113,6 +113,29 @@ export default {
       </div>
 
       <div
+        v-else-if="
+          selected.includes('Indoor') && selected.includes('Heritage')
+        ">
+        <div class="place" v-for="place in places" :key="places[0]">
+          <div
+            v-if="place[1].type == 'indoor' && place[1].category == 'heritage'">
+            <button class="card">
+              <h1>{{ place[0] }}</h1>
+              <br />
+              <div v-if="place[1].price == 0">
+                <h3>Price: Free</h3>
+              </div>
+              <div v-else>
+                <h3>Price: ${{ place[1].price }}</h3>
+              </div>
+              <br />
+              <h3>Area: {{ place[1].area }}</h3>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
         v-else-if="selected.includes('Outdoor') && selected.includes('Food')">
         <div class="place" v-for="place in places" :key="places[0]">
           <div v-if="place[1].type == 'outdoor' && place[1].category == 'food'">
