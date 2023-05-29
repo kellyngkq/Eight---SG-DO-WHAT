@@ -1,9 +1,11 @@
 <template>
   <popup-modal ref="popup">
-    <img src="https://placehold.co/600x400" />
+    <img :src="pic" />
     <h1>
       <strong>{{ message }}</strong>
     </h1>
+    <h4>{{ time }}</h4>
+    <h4>{{ link }}</h4>
     <div class="btns">
       <button class="ok-btn" @click="_ok">ok</button>
     </div>
@@ -20,7 +22,10 @@ export default {
 
   data: () => ({
     // Parameters that change depending on the type of dialogue
+    pic: undefined,
     message: undefined, // Main text content
+    time: undefined,
+    link: undefined,
 
     // Private variables
     resolvePromise: undefined,
@@ -29,7 +34,10 @@ export default {
 
   methods: {
     show(opts = {}) {
+      this.pic = opts.pic;
       this.message = opts.message;
+      this.time = opts.time;
+      this.link = opts.link;
       // Once we set our config, we tell the popup modal to open
       this.$refs.popup.open();
       // Return promise so the caller can get results
@@ -80,5 +88,13 @@ p {
   background-color: lightblue;
   box-shadow: 0 2px lightgray;
   transform: translateY(4px);
+}
+
+img {
+  display: table-row;
+  height: 300px;
+  width: 80vh;
+  object-fit: cover;
+  padding-top: 5vh;
 }
 </style>

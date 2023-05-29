@@ -3,6 +3,7 @@ import firebaseApp from "../firebase.js";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import MoreInfo from "./MoreInfo.vue";
 
 const db = getFirestore(firebaseApp);
 const storage = getStorage();
@@ -16,6 +17,9 @@ export default {
       selected: [],
     };
   },
+  components: {
+    MoreInfo,
+  },
   methods: {
     async display() {
       this.places = [];
@@ -25,7 +29,21 @@ export default {
       docSnap.forEach((doc) => {
         this.places.push([doc.id, doc.data()]);
       });
+    },
 
+    async handleClose() {
+      this.showModal = false;
+    },
+
+    async openModal(chose) {
+      this.showModal = true;
+      this.chosen = chose;
+      await this.$refs.moreinfo.show({
+        pic: "src/assets/" + chose[0] + ".jpg",
+        message: chose[0],
+        time: chose[1].time,
+        link: chose[1].url,
+      });
       console.log("Current rain status: " + this.rain);
     },
   },
@@ -46,10 +64,14 @@ export default {
     <span>Here are the recommended places, have fun!</span>
 
     <!--If its not raining, and none selected, then display all-->
+    <MoreInfo ref="moreinfo"></MoreInfo>
     <div v-if="selected.length == 0">
       <div class="place" v-for="place in places" :key="places[0]">
-        <div class="card">
+        <div class="card" @click="openModal(place)">
           <div class="container">
+            <div class="placepic">
+              <img :src="'src/assets/' + place[0] + '.jpg'" />
+            </div>
             <h1>{{ place[0] }}</h1>
             <br />
             <div v-if="place[1].price == 0">
@@ -72,20 +94,21 @@ export default {
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="selected.includes('Indoor') && selected.includes('Nature')">
+        v-else-if="selected.includes('Indoor') && selected.includes('Nature')"
+      >
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="
-          selected.includes('Nature') && selected.includes('Heritage')
-        ">
+        v-else-if="selected.includes('Nature') && selected.includes('Heritage')"
+      >
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div v-else-if="selected.includes('Nature') && selected.includes('Food')">
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="selected.includes('Heritage') && selected.includes('Food')">
+        v-else-if="selected.includes('Heritage') && selected.includes('Food')"
+      >
         <h3>There are no listings that match your selections.</h3>
       </div>
 
@@ -112,12 +135,12 @@ export default {
       </div>
 
       <div
-        v-else-if="
-          selected.includes('Indoor') && selected.includes('Heritage')
-        ">
+        v-else-if="selected.includes('Indoor') && selected.includes('Heritage')"
+      >
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="place[1].type == 'indoor' && place[1].category == 'heritage'">
+            v-if="place[1].type == 'indoor' && place[1].category == 'heritage'"
+          >
             <div class="card">
               <div class="container">
                 <h1>{{ place[0] }}</h1>
@@ -137,7 +160,8 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Food')">
+        v-else-if="selected.includes('Outdoor') && selected.includes('Food')"
+      >
         <div class="place" v-for="place in places" :key="places[0]">
           <div v-if="place[1].type == 'outdoor' && place[1].category == 'food'">
             <div class="card">
@@ -159,10 +183,12 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Nature')">
+        v-else-if="selected.includes('Outdoor') && selected.includes('Nature')"
+      >
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="place[1].type == 'outdoor' && place[1].category == 'nature'">
+            v-if="place[1].type == 'outdoor' && place[1].category == 'nature'"
+          >
             <div class="card">
               <div class="container">
                 <h1>{{ place[0] }}</h1>
@@ -184,12 +210,12 @@ export default {
       <div
         v-else-if="
           selected.includes('Outdoor') && selected.includes('Heritage')
-        ">
+        "
+      >
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="
-              place[1].type == 'outdoor' && place[1].category == 'heritage'
-            ">
+            v-if="place[1].type == 'outdoor' && place[1].category == 'heritage'"
+          >
             <div class="card">
               <div class="container">
                 <h1>{{ place[0] }}</h1>
@@ -209,7 +235,8 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Food')">
+        v-else-if="selected.includes('Outdoor') && selected.includes('Food')"
+      >
         <div class="place" v-for="place in places" :key="places[0]">
           <div v-if="place[1].type == 'outdoor' && place[1].category == 'food'">
             <div class="card">
@@ -400,20 +427,21 @@ export default {
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="selected.includes('Indoor') && selected.includes('Nature')">
+        v-else-if="selected.includes('Indoor') && selected.includes('Nature')"
+      >
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="
-          selected.includes('Nature') && selected.includes('Heritage')
-        ">
+        v-else-if="selected.includes('Nature') && selected.includes('Heritage')"
+      >
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div v-else-if="selected.includes('Nature') && selected.includes('Food')">
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="selected.includes('Heritage') && selected.includes('Food')">
+        v-else-if="selected.includes('Heritage') && selected.includes('Food')"
+      >
         <h3>There are no listings that match your selections.</h3>
       </div>
 
@@ -440,12 +468,12 @@ export default {
       </div>
 
       <div
-        v-else-if="
-          selected.includes('Indoor') && selected.includes('Heritage')
-        ">
+        v-else-if="selected.includes('Indoor') && selected.includes('Heritage')"
+      >
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="place[1].type == 'indoor' && place[1].category == 'heritage'">
+            v-if="place[1].type == 'indoor' && place[1].category == 'heritage'"
+          >
             <div class="card">
               <div class="container">
                 <h1>{{ place[0] }}</h1>
@@ -465,7 +493,8 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Food')">
+        v-else-if="selected.includes('Outdoor') && selected.includes('Food')"
+      >
         <div class="place" v-for="place in places" :key="places[0]">
           <div v-if="place[1].type == 'outdoor' && place[1].category == 'food'">
             <div class="card">
@@ -487,10 +516,12 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Nature')">
+        v-else-if="selected.includes('Outdoor') && selected.includes('Nature')"
+      >
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="place[1].type == 'outdoor' && place[1].category == 'nature'">
+            v-if="place[1].type == 'outdoor' && place[1].category == 'nature'"
+          >
             <div class="card">
               <div class="container">
                 <h1>{{ place[0] }}</h1>
@@ -512,12 +543,12 @@ export default {
       <div
         v-else-if="
           selected.includes('Outdoor') && selected.includes('Heritage')
-        ">
+        "
+      >
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="
-              place[1].type == 'outdoor' && place[1].category == 'heritage'
-            ">
+            v-if="place[1].type == 'outdoor' && place[1].category == 'heritage'"
+          >
             <div class="card">
               <div class="container">
                 <h1>{{ place[0] }}</h1>
@@ -537,7 +568,8 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Food')">
+        v-else-if="selected.includes('Outdoor') && selected.includes('Food')"
+      >
         <div class="place" v-for="place in places" :key="places[0]">
           <div v-if="place[1].type == 'outdoor' && place[1].category == 'food'">
             <div class="card">
@@ -677,6 +709,7 @@ export default {
                   <h3>Price: ${{ place[1].price }}</h3>
                 </div>
                 <br />
+
                 <h3>Area: {{ place[1].area }}</h3>
               </div>
             </div>
@@ -694,10 +727,11 @@ export default {
   transition: 0.3s;
   text-align: left;
   width: 52vh;
-  margin: 10px;
+  margin: 6px;
   background-color: palegoldenrod;
   height: 40vh;
   padding: 5px 15px;
+  display: table;
   border-radius: 20px;
 }
 
@@ -705,6 +739,14 @@ export default {
   grid-template-columns: auto auto auto;
   margin-top: 3vh;
   float: left;
-  margin-left: 7vh;
+  margin-left: 5vh;
+}
+
+.placepic img {
+  display: table-row;
+  height: 30vh;
+  width: 52vh;
+  object-fit: cover;
+  padding-top: 3vh;
 }
 </style>
