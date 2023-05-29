@@ -62,7 +62,7 @@ export default {
     <input type="checkbox" value="Nature" v-model="selected" />Nature<br />
     <input type="checkbox" value="Heritage" v-model="selected" />Heritage<br />
     <input type="checkbox" value="Food" v-model="selected" />Food <br /><br />
-    <span>Here are the recommended places, have fun!</span>
+    <span><h3>Here are the recommended places, have fun!</h3></span>
 
     <!--If its not raining, and none selected, then display all-->
     <MoreInfo ref="moreinfo"></MoreInfo>
@@ -428,7 +428,7 @@ export default {
       <input type="checkbox" value="Nature" v-model="selected" />Nature
       <input type="checkbox" value="Heritage" v-model="selected" />Heritage
       <input type="checkbox" value="Food" v-model="selected" />Food <br /><br />
-      <span>Here are the recommended places, have fun!</span>
+      <span><h3>Here are the recommended places, have fun!</h3></span>
     </div>
 
     <div v-if="selected.length == 0">
