@@ -1,14 +1,14 @@
 <template>
   <popup-modal ref="popup">
+    <div class="btns">
+      <button class="ok-btn" @click="_ok">X</button>
+    </div>
     <img :src="pic" />
     <h1>
       <strong>{{ message }}</strong>
     </h1>
-    <h4>{{ time }}</h4>
-    <h4>{{ link }}</h4>
-    <div class="btns">
-      <button class="ok-btn" @click="_ok">ok</button>
-    </div>
+    <h4>Recommended duration: {{ time }}</h4>
+    <a v-if="typeof link !== 'undefined'" :href="link">Find out more!</a>
   </popup-modal>
 </template>
 
@@ -78,10 +78,12 @@ p {
   text-transform: uppercase;
   cursor: pointer;
   float: right;
+  font-size: 2vh;
+  margin-bottom: 1vh;
 }
 
 .ok-btn:hover {
-  background-color: lightblue;
+  background-color: rgb(255, 0, 0, 0.6);
 }
 
 .ok-btn:active {
@@ -95,6 +97,5 @@ img {
   height: 300px;
   width: 80vh;
   object-fit: cover;
-  padding-top: 5vh;
 }
 </style>
