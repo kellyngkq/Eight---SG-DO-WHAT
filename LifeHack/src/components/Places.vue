@@ -360,7 +360,6 @@ export default {
 
   <!--Else, if its raining, then show only indoor places-->
   <div v-else-if="rain == true">
-    its raining
     <!--checkbox also auto checks "indoor and whatever category the place is under"-->
     <div>
       <input type="checkbox" value="All" v-model="selected" />All

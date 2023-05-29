@@ -8,7 +8,7 @@ export default {
   data() {
     return {
       currDate: new Date(),
-      rain: true,
+      rain: false,
       temp: 0,
       url: "",
     };
