@@ -7,7 +7,7 @@
     <h1>
       <strong>{{ message }}</strong>
     </h1>
-    <h4>Estimated time spent: {{ time }}</h4>
+    <h4>Recommended duration: {{ time }}</h4>
     <a v-if="typeof link !== 'undefined'" :href="link">Find out more!</a>
   </popup-modal>
 </template>
