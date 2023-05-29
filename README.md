@@ -7,6 +7,7 @@ cd LifeHack
 npm install
 npm run dev
 ```
+![photo_2023-05-29_22-59-16-removebg-preview](https://github.com/kellyngkq/Eight---SG-DO-WHAT/assets/99710151/69c57092-13c8-4980-a64f-fb70a44f3eff)
 
 ## About Us
 
