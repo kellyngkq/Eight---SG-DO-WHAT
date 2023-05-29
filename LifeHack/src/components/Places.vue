@@ -62,10 +62,7 @@ export default {
       <input type="checkbox" value="Indoor" v-model="selected" />Indoor
       <input type="checkbox" value="Outdoor" v-model="selected" />Outdoor
       <input type="checkbox" value="Nature" v-model="selected" />Nature
-      <input
-        type="checkbox"
-        value="Heritage"
-        v-model="selected" />Heritage
+      <input type="checkbox" value="Heritage" v-model="selected" />Heritage
       <input type="checkbox" value="Food" v-model="selected" />Food <br /><br />
       <span
         ><h3 id="recommended">
@@ -406,6 +403,7 @@ export default {
     <br /><br /><br />
     <!--checkbox also auto checks "indoor and whatever category the place is under"-->
     <div id="checkboxes">
+      <h6>What do you want to do today?</h6>
       <input type="checkbox" value="All" v-model="selected" />All
       <input type="checkbox" value="Indoor" v-model="selected" checked />Indoor
       <input type="checkbox" value="Outdoor" v-model="selected" />Outdoor
@@ -755,7 +753,7 @@ export default {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-#checkboxes input{
+#checkboxes input {
   margin: 0px 4px 0px 10px;
 }
 
