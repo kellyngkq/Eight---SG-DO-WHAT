@@ -2,6 +2,7 @@
 import firebaseApp from "../firebase.js";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
+import MoreInfo from "./MoreInfo.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 const db = getFirestore(firebaseApp);
@@ -14,7 +15,12 @@ export default {
     return {
       places: [],
       selected: [],
+      showModal: false,
+      chosen: "",
     };
+  },
+  components: {
+    MoreInfo,
   },
   methods: {
     async display() {
@@ -28,12 +34,25 @@ export default {
 
       console.log("Current rain status: " + this.rain);
     },
+
+    async handleClose() {
+      this.showModal = false;
+    },
+
+    async openModal(chose) {
+      this.showModal = true;
+      this.chosen = chose;
+      await this.$refs.moreinfo.show({
+        message: chose[0],
+      });
+    },
   },
   async mounted() {
     this.display();
   },
 };
 </script>
+
 <template>
   <!--If there is no rain, show everything-->
   <div v-if="rain == false">
@@ -366,6 +385,17 @@ export default {
         value="Entertainment"
         v-model="selected" />Entertainment <br /><br />
       <span>Here are the recommended places, have fun!</span>
+    </div>
+</div>
+  <!--<input type="button" value="view Image" id="viewbtn" @click="showimage" />-->
+  <MoreInfo ref="moreinfo"></MoreInfo>
+  <div class="place" v-for="place in places" :key="places[0]">
+    <div class="card" @click="openModal(place)">
+      <h1>{{ place[0] }}</h1>
+      <br />
+      <h3>Price: ${{ place[1].price }}</h3>
+      <br />
+      <h3>Area: {{ place[1].area }}</h3>
     </div>
   </div>
 </template>

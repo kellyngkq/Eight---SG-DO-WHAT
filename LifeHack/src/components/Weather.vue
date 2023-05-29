@@ -47,19 +47,19 @@ export default {
 <template>
   <div class="Greetings">
     <div class="weather">
-      <h3>Today's Weather in SG</h3>
-      <h1>Rainfall today {{ rain }}</h1>
-      <font-awesome-icon icon="fa-solid fa-temperature-half" />
-      <h1>Temperature today {{ temp.toPrecision(3) }}</h1>
+      <h1><strong>Today's Weather in Singapore</strong></h1>
+      <h2>Rainfall today {{ rain }}</h2>
+      <div class="temp">
+        <font-awesome-icon icon="fa-solid fa-temperature-half" />
+        <h2>{{ temp.toPrecision(3) }}</h2>
+      </div>
       <h6>
         Information accurate as of {{ currDate.toLocaleDateString() }},
         {{ currDate.toTimeString() }}
       </h6>
     </div>
-    <img
-      v-if="(temp < 32) & !rain"
-      class="perfect"
-      src="../assets/perfect.jpg" />
+    <div v-if="!rain" class="perfect"></div>
+    <div v-else class="rain"></div>
   </div>
   <div id="myimg"></div>
   <Places :rain = "rain"></Places>
@@ -83,19 +83,51 @@ img {
   filter: blur(1px) sepia(50%);
 }
 
-/* .weather {
-  z-index: 888;
-  color: black;
-  position: relative;
-  text-align: center;
-} */
+.perfect {
+  min-height: 1000px;
+  height: 100%;
+  filter: blur(3px);
+  background-image: url("../assets/perfect.JPG");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+.rain {
+  min-height: 1000px;
+  height: 100%;
+  filter: blur(3px);
+  background-image: url("../assets/rainy.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.temp {
+  font-size: 30px;
+}
+
+h2 {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 40px;
+}
+
+h1 {
+  font-size: 60px;
+}
 .weather {
-  z-index: 888;
+  z-index: 4;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 200px;
+  background-color: rgba(0, 0, 0, 0.35);
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
 }
 </style>
