@@ -1,8 +1,10 @@
 <script>
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import Places from "@/components/Places.vue";
 
 export default {
+  name: "weather",
   data() {
     return {
       currDate: new Date(),
@@ -10,6 +12,9 @@ export default {
       temp: 0,
       url: "",
     };
+  },
+  components: {
+    Places,
   },
 
   async mounted() {
@@ -55,9 +60,14 @@ export default {
         {{ currDate.toTimeString() }}
       </h6>
     </div>
-    <div v-if="!rain" class="perfect"></div>
-    <div v-else class="rain"></div>
+    <img
+      v-if="(temp < 32) & !rain"
+      class="perfect"
+      src="../assets/perfect.jpg"
+    />
   </div>
+  <div id="myimg"></div>
+  <Places :rain="rain"></Places>
 </template>
 
 <style scoped>
@@ -77,51 +87,19 @@ img {
   filter: blur(1px) sepia(50%);
 }
 
-.perfect {
-  min-height: 1000px;
-  height: 100%;
-  filter: blur(3px);
-  background-image: url("../assets/perfect.JPG");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+/* .weather {
+  z-index: 888;
+  color: black;
+  position: relative;
+  text-align: center;
+} */
 
-.rain {
-  min-height: 1000px;
-  height: 100%;
-  filter: blur(3px);
-  background-image: url("../assets/rainy.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.temp {
-  font-size: 30px;
-}
-
-h2 {
-  display: inline-block;
-  margin-left: 5px;
-  font-size: 40px;
-}
-
-h1 {
-  font-size: 60px;
-}
 .weather {
-  z-index: 4;
+  z-index: 888;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 200px;
-  background-color: rgba(0, 0, 0, 0.35);
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 15px;
 }
 </style>
