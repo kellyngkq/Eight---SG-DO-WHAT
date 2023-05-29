@@ -55,6 +55,7 @@ export default {
 <template>
   <!--If there is no rain, show everything-->
   <div v-if="rain == false">
+    <br><br><br>
     <input type="checkbox" value="All" v-model="selected" />All <br />
     <input type="checkbox" value="Indoor" v-model="selected" />Indoor <br />
     <input type="checkbox" value="Outdoor" v-model="selected" />Outdoor <br />
@@ -418,6 +419,7 @@ export default {
 
   <!--Else, if its raining, then show only indoor places-->
   <div v-else-if="rain == true">
+    <br><br><br>
     <!--checkbox also auto checks "indoor and whatever category the place is under"-->
     <div>
       <input type="checkbox" value="All" v-model="selected" />All
