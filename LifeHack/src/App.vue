@@ -1,10 +1,12 @@
 <script setup>
 import Places from "./components/Places.vue";
 import Weather from "./components/Weather.vue";
+import Header from "./components/Header.vue";
 </script>
 
 <template>
   <div class="container">
+    <div id="header"><Header /></div>
     <div id="weather"><Weather /></div>
     <div id="places"><Places /></div>
   </div>
@@ -42,6 +44,10 @@ header {
   }
 
   #weather {
+    display: grid;
+  }
+
+  #header {
     display: grid;
   }
 }
