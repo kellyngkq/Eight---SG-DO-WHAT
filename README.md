@@ -3,6 +3,7 @@
 ## Project Setup
 
 ```sh
+cd lifehack
 npm install
 npm run dev
 ```
