@@ -57,6 +57,7 @@ export default {
   <div v-if="rain == false">
     <br /><br /><br />
     <div id="checkboxes">
+      <h6>What do you want to do today?</h6>
       <input type="checkbox" value="All" v-model="selected" />All
       <input type="checkbox" value="Indoor" v-model="selected" />Indoor
       <input type="checkbox" value="Outdoor" v-model="selected" />Outdoor
@@ -755,7 +756,7 @@ export default {
 }
 
 #checkboxes input{
-  margin: 0px 6px 0px 12px;
+  margin: 0px 4px 0px 10px;
 }
 
 .card {
