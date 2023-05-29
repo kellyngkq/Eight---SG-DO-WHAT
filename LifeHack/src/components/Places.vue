@@ -38,7 +38,10 @@ export default {
       this.showModal = true;
       this.chosen = chose;
       await this.$refs.moreinfo.show({
+        pic: "src/assets/" + chose[0] + ".jpg",
         message: chose[0],
+        time: chose[1].time,
+        link: chose[1].url,
       });
     },
   },
@@ -53,6 +56,9 @@ export default {
   <MoreInfo ref="moreinfo"></MoreInfo>
   <div class="place" v-for="place in places" :key="places[0]">
     <div class="card" @click="openModal(place)">
+      <div class="placepic">
+        <img :src="'src/assets/' + place[0] + '.jpg'" />
+      </div>
       <h1>{{ place[0] }}</h1>
       <br />
       <h3>Price: ${{ place[1].price }}</h3>
@@ -73,5 +79,15 @@ export default {
   background-color: peachpuff;
   height: 380px;
   border-radius: 20px;
+  display: table;
+}
+
+.placepic img {
+  display: table-row;
+  height: 300px;
+  width: 80vh;
+  object-fit: cover;
+  padding-top: 5vh;
+  padding-left: 5vh;
 }
 </style>
