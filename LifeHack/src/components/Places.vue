@@ -94,21 +94,20 @@ export default {
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="selected.includes('Indoor') && selected.includes('Nature')"
-      >
+        v-else-if="selected.includes('Indoor') && selected.includes('Nature')">
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="selected.includes('Nature') && selected.includes('Heritage')"
-      >
+        v-else-if="
+          selected.includes('Nature') && selected.includes('Heritage')
+        ">
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div v-else-if="selected.includes('Nature') && selected.includes('Food')">
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="selected.includes('Heritage') && selected.includes('Food')"
-      >
+        v-else-if="selected.includes('Heritage') && selected.includes('Food')">
         <h3>There are no listings that match your selections.</h3>
       </div>
 
@@ -118,6 +117,9 @@ export default {
           <div v-if="place[1].type == 'indoor' && place[1].category == 'food'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -135,14 +137,17 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Indoor') && selected.includes('Heritage')"
-      >
+        v-else-if="
+          selected.includes('Indoor') && selected.includes('Heritage')
+        ">
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="place[1].type == 'indoor' && place[1].category == 'heritage'"
-          >
+            v-if="place[1].type == 'indoor' && place[1].category == 'heritage'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -160,12 +165,14 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Food')"
-      >
+        v-else-if="selected.includes('Outdoor') && selected.includes('Food')">
         <div class="place" v-for="place in places" :key="places[0]">
           <div v-if="place[1].type == 'outdoor' && place[1].category == 'food'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -183,14 +190,15 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Nature')"
-      >
+        v-else-if="selected.includes('Outdoor') && selected.includes('Nature')">
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="place[1].type == 'outdoor' && place[1].category == 'nature'"
-          >
+            v-if="place[1].type == 'outdoor' && place[1].category == 'nature'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -210,14 +218,17 @@ export default {
       <div
         v-else-if="
           selected.includes('Outdoor') && selected.includes('Heritage')
-        "
-      >
+        ">
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="place[1].type == 'outdoor' && place[1].category == 'heritage'"
-          >
+            v-if="
+              place[1].type == 'outdoor' && place[1].category == 'heritage'
+            ">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -235,12 +246,14 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Food')"
-      >
+        v-else-if="selected.includes('Outdoor') && selected.includes('Food')">
         <div class="place" v-for="place in places" :key="places[0]">
           <div v-if="place[1].type == 'outdoor' && place[1].category == 'food'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -263,6 +276,9 @@ export default {
         <div class="place" v-for="place in places" :key="places[0]">
           <div class="card">
             <div class="container">
+              <div class="placepic">
+                <img :src="'src/assets/' + place[0] + '.jpg'" />
+              </div>
               <h1>{{ place[0] }}</h1>
               <br />
               <div v-if="place[1].price == 0">
@@ -283,6 +299,9 @@ export default {
           <div v-if="place[1].type == 'indoor'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -304,6 +323,9 @@ export default {
           <div v-if="place[1].type == 'outdoor'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -325,6 +347,9 @@ export default {
           <div v-if="place[1].category == 'nature'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -346,6 +371,9 @@ export default {
           <div v-if="place[1].category == 'heritage'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -367,6 +395,9 @@ export default {
           <div v-if="place[1].category == 'food'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -404,6 +435,9 @@ export default {
         <div v-if="place[1].type == 'indoor'">
           <div class="card">
             <div class="container">
+              <div class="placepic">
+                <img :src="'src/assets/' + place[0] + '.jpg'" />
+              </div>
               <h1>{{ place[0] }}</h1>
               <br />
               <div v-if="place[1].price == 0">
@@ -427,21 +461,20 @@ export default {
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="selected.includes('Indoor') && selected.includes('Nature')"
-      >
+        v-else-if="selected.includes('Indoor') && selected.includes('Nature')">
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="selected.includes('Nature') && selected.includes('Heritage')"
-      >
+        v-else-if="
+          selected.includes('Nature') && selected.includes('Heritage')
+        ">
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div v-else-if="selected.includes('Nature') && selected.includes('Food')">
         <h3>There are no listings that match your selections.</h3>
       </div>
       <div
-        v-else-if="selected.includes('Heritage') && selected.includes('Food')"
-      >
+        v-else-if="selected.includes('Heritage') && selected.includes('Food')">
         <h3>There are no listings that match your selections.</h3>
       </div>
 
@@ -451,6 +484,9 @@ export default {
           <div v-if="place[1].type == 'indoor' && place[1].category == 'food'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -468,14 +504,17 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Indoor') && selected.includes('Heritage')"
-      >
+        v-else-if="
+          selected.includes('Indoor') && selected.includes('Heritage')
+        ">
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="place[1].type == 'indoor' && place[1].category == 'heritage'"
-          >
+            v-if="place[1].type == 'indoor' && place[1].category == 'heritage'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -493,12 +532,14 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Food')"
-      >
+        v-else-if="selected.includes('Outdoor') && selected.includes('Food')">
         <div class="place" v-for="place in places" :key="places[0]">
           <div v-if="place[1].type == 'outdoor' && place[1].category == 'food'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -516,14 +557,15 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Nature')"
-      >
+        v-else-if="selected.includes('Outdoor') && selected.includes('Nature')">
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="place[1].type == 'outdoor' && place[1].category == 'nature'"
-          >
+            v-if="place[1].type == 'outdoor' && place[1].category == 'nature'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -543,14 +585,17 @@ export default {
       <div
         v-else-if="
           selected.includes('Outdoor') && selected.includes('Heritage')
-        "
-      >
+        ">
         <div class="place" v-for="place in places" :key="places[0]">
           <div
-            v-if="place[1].type == 'outdoor' && place[1].category == 'heritage'"
-          >
+            v-if="
+              place[1].type == 'outdoor' && place[1].category == 'heritage'
+            ">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -568,12 +613,14 @@ export default {
       </div>
 
       <div
-        v-else-if="selected.includes('Outdoor') && selected.includes('Food')"
-      >
+        v-else-if="selected.includes('Outdoor') && selected.includes('Food')">
         <div class="place" v-for="place in places" :key="places[0]">
           <div v-if="place[1].type == 'outdoor' && place[1].category == 'food'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -596,6 +643,9 @@ export default {
         <div class="place" v-for="place in places" :key="places[0]">
           <div class="card">
             <div class="container">
+              <div class="placepic">
+                <img :src="'src/assets/' + place[0] + '.jpg'" />
+              </div>
               <h1>{{ place[0] }}</h1>
               <br />
               <div v-if="place[1].price == 0">
@@ -616,6 +666,9 @@ export default {
           <div v-if="place[1].type == 'indoor'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -637,6 +690,9 @@ export default {
           <div v-if="place[1].type == 'outdoor'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -658,6 +714,9 @@ export default {
           <div v-if="place[1].category == 'nature'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -679,6 +738,9 @@ export default {
           <div v-if="place[1].category == 'heritage'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
@@ -700,6 +762,9 @@ export default {
           <div v-if="place[1].category == 'food'">
             <div class="card">
               <div class="container">
+                <div class="placepic">
+                  <img :src="'src/assets/' + place[0] + '.jpg'" />
+                </div>
                 <h1>{{ place[0] }}</h1>
                 <br />
                 <div v-if="place[1].price == 0">
